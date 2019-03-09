@@ -110,7 +110,7 @@ int main(void){
 		  for (int i=0;i<sizeof(piratas)/sizeof(piratas[0]);i++){
 			if(pio_get(BUTTNEXT_PIO,PIO_INPUT ,BUTTNEXT_PIO_IDX_MASK)==0){
 				i=0;
-				delay_us(1);
+				delay_s(0.5);
 
 				if(n%2==0){
 					playing_notes = notes_2;
