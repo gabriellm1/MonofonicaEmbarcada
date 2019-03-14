@@ -4,3 +4,5 @@ Montagem de um reprodutor de músicas monofônicas em um sistema embarcado, o si
 Pirates of the Caribbean and Super Mario theme songs played by a buzzer using  SAME-70 for the Embedded Systems at Insper
 
 
+
+Demonstacao https://www.youtube.com/watch?v=hicsGSOZdWM
