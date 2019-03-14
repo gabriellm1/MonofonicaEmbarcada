@@ -5,7 +5,7 @@
   **  - Gabriel Monteiro - gabriellm1@al.insper.edu.br
   **  - Guilherme Leite -
   **
-  **  - url vídeo
+  **  - https://www.youtube.com/watch?v=hicsGSOZdWM
   **/
 
 /************************************************************************/
