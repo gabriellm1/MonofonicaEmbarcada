@@ -81,16 +81,17 @@ void init(void)
 	 pio_pull_up(BUTTNEXT_PIO, BUTTNEXT_PIO_IDX_MASK, 1);
 }
 
-void play(int i,int duration[],int notes[]){
+void play(int i,int duration[],int notes[],int n){
 	int aciona = notes[i]*(((float) duration[i])/1000.0);
 	for(int w=aciona;w>=0;w--)
-	{
-		pio_set(PIOA, BUZZ_PIO_IDX_MASK);
-		delay_us(500000/notes[i]);
-		pio_clear(PIOA, BUZZ_PIO_IDX_MASK);
-		delay_us(500000/notes[i]);
-		pio_set(LED_PIO,LED_PIO_IDX_MASK);
-	}
+	{ 
+			pio_set(PIOA, BUZZ_PIO_IDX_MASK);
+			delay_us(500000/notes[i]);
+			pio_clear(PIOA, BUZZ_PIO_IDX_MASK);
+			pio_set(LED_PIO,LED_PIO_IDX_MASK);
+			delay_us(500000/notes[i]);
+}
+	delay_us(80000);
 	pio_clear(LED_PIO,LED_PIO_IDX_MASK);
 }
 
@@ -111,7 +112,7 @@ int main(void){
 		  for (int i=0;i<sizeof(piratas)/sizeof(piratas[0]);i++){
 			if(pio_get(BUTTNEXT_PIO,PIO_INPUT ,BUTTNEXT_PIO_IDX_MASK)==0){
 				i=0;
-				delay_s(0.5);
+				delay_s(1);
 
 				if(n%2==0){
 					playing_notes = mario;
@@ -125,12 +126,26 @@ int main(void){
 				
 				n++;
 			}
-			play(i,playing_dura,playing_notes);
+			if(pio_get(BUTTSTART_PIO,PIO_INPUT ,BUTTSTART_PIO_IDX_MASK)==0){
+				int pause =1;
+				delay_s(1);
+				while(pause){
+					if(pio_get(BUTTSTART_PIO,PIO_INPUT ,BUTTSTART_PIO_IDX_MASK)==0){
+						pause=0;
+						delay_s(0.5);
+
+					}
+				}
+			}
+
+			play(i,playing_dura,playing_notes,n);
 		}
 	}
  			
 		else{
 			pio_clear(BUZZ_PIO, BUZZ_PIO_IDX_MASK);
+			pio_set(LED_PIO, LED_PIO_IDX_MASK);
+
 		}
 	}
 }
