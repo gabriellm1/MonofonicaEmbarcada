@@ -1,4 +1,6 @@
 //defines musica(piratas do caribe)
+////Fonte: https://github.com/xitangg/-Pirates-of-the-Caribbean-Theme-Song/blob/master/Pirates_of_the_Caribbean_-_Theme_Song.ino
+
 #define NOTE_C4  262
 #define NOTE_D4  294
 #define NOTE_E4  330
