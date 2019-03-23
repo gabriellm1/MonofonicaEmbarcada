@@ -70,6 +70,8 @@ int dur_piratas[] = {
   125, 125, 125, 125, 125, 500
 };
 //*****************************************
+//Fonte musica Super Mario:
+//https://www.princetronics.com/supermariothemesong/
 int mario[] = {
 	NOTE_E7, NOTE_E7, 0, NOTE_E7,
 	0, NOTE_C7, NOTE_E7, 0,
